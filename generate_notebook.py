@@ -1041,3 +1041,25 @@ Happy analyzing and modeling!
     ))
 
 # These functions will be called when assembling the full notebook.
+
+def main():
+    """Main function to generate the notebook."""
+    notebook = initialize_notebook()
+    cells = notebook['cells'] # Get a reference to the cells list
+
+    # Add all sections
+    add_introductory_cells(cells)
+    add_data_loading_cleaning_section(cells)
+    add_eda_section(cells)
+    add_plotting_section(cells)
+    add_q_and_a_section(cells)
+    add_predictive_modeling_section(cells)
+    add_concluding_cells(cells)
+
+    # Save the notebook
+    notebook_filename = "AI_Generated_Data_Notebook.ipynb"
+    save_notebook(notebook, notebook_filename)
+    print(f"Successfully generated and saved '{notebook_filename}'")
+
+if __name__ == "__main__":
+    main()
